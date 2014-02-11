@@ -21,7 +21,9 @@
                 that.instances.fetch({
                     success:function(){
                         that.instances.each(function(m){
-                            console.log(m)
+                            if(m.id != that.___.i.id){
+                                m.remove();
+                            }
                         })
                     },data:{"touch":false}
                 })
