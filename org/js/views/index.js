@@ -28,7 +28,7 @@
                             console.log(m.toJSON())
                         })
                         if(!flag)
-                            that.items.create({"title":"haystack"
+                            that.items.create({"title":"Haystack"
                                 ,"path":"haystack"
                                 ,"body":{
                                         "city":"Yerevan"
