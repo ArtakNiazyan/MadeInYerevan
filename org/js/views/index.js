@@ -21,8 +21,13 @@
 
                 that.items.fetch({
                     success:function(){
-                        that.instances.each(function(m){
-                        
+                        var flag = true;
+                        that.items.each(function(m){
+                            if(flag && m.get("body.title") =="Haystack"){
+                                flag = false;
+                                m.destroy();
+                            }
+
                             console.log(m.toJSON())
                         })
                         
