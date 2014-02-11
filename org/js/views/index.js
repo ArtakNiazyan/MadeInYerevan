@@ -21,28 +21,28 @@
 
                 that.items.fetch({
                     success:function(){
-                        var flag = false;
                         that.instances.each(function(m){
-                            if(m.get("body.title") == "Haystack")
-                                flag = true;
+                        
                             console.log(m.toJSON())
                         })
-                        if(!flag)
-                            that.items.create({"title":"Haystack"
-                                ,"path":"haystack"
-                                ,"body":{
-                                        "city":"Yerevan"
-                                        ,"founders":["Vache", "Andrew"]
-                                        ,"site":"https://haystack.im"
-                                    }
-                                ,"group":"startup"
-                                },{callback:function(err,m){
-                                    console.log("err : ",err,"m:",m);
-                                }});
+                        
                     },data:{"group":"startup"}
                 })
              
             
+            },signup:function(){
+               var that       = this;
+                that.items.create({"title":"Haystack"
+                    ,"path":"haystack"
+                    ,"body":{
+                            "city":"Yerevan"
+                            ,"founders":["Vache", "Andrew"]
+                            ,"site":"https://haystack.im"
+                        }
+                    ,"group":"startup"
+                    },{callback:function(json,m){
+                        console.log("m:",m);
+                    }});
             }
     });
 });
