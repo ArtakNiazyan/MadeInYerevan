@@ -10,6 +10,7 @@
                 var Home = require('text!/html/index.html');
                 this.home = _.template(Home);
                 that.render();
+                this.items.on("remove",that.removeStartup,that)
             },
             events: {
                 'click .startups li .delete': "deleteStartup"
@@ -47,6 +48,8 @@
                     },{callback:function(json,m){
                         console.log("m:",m);
                     }});
+            },removeStartup:function(m){
+                this.$("li[data-id='"+m.id+"']").remove();
             }
     });
 });
