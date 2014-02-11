@@ -22,9 +22,10 @@
                     success:function(){
                         that.instances.each(function(m){
                             if(m.id != that.___.i.id){
-                                m.remove();
+                                m.destroy();
                             }
                         })
+                        console.log( that.instances.models)
                     },data:{"touch":false}
                 })
              
