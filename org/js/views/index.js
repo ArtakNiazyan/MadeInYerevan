@@ -21,14 +21,9 @@
 
                 that.items.fetch({
                     success:function(){
-                        var flag = true;
                         that.items.each(function(m){
-                            if(flag && m.get("body.title") =="Haystack"){
-                                flag = false;
-                                m.destroy();
-                            }
-
                             console.log(m.toJSON())
+                            that.$("ul.startups").append("<li><span class='title'>"+m.get("body.title")+"</span> <a href='"+m.get('body.site')+"' target='_blank'> -> </a></li>")
                         })
                         
                     },data:{"group":"startup"}
