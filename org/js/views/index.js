@@ -23,7 +23,7 @@
                     success:function(){
                         that.items.each(function(m){
                             console.log(m.toJSON())
-                            that.$("ul.startups").append("<li><span class='title'>"+m.get("body.title")+"</span> <a href='"+m.get('body.site')+"' target='_blank'> -> </a></li>")
+                            that.$("ul.startups").append("<li><span class='title'>"+m.get("title")+"</span> <a href='"+m.get('body.site')+"' target='_blank'> -> </a></li>")
                         })
                         
                     },data:{"group":"startup"}
