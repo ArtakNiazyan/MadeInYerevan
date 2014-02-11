@@ -12,6 +12,7 @@
                 that.render();
             },
             events: {
+                'click .startups li .delete': "deleteStartup"
             },
             render:function(){
                 var that       = this;
@@ -23,13 +24,16 @@
                     success:function(){
                         that.items.each(function(m){
                             console.log(m.toJSON())
-                            that.$("ul.startups").append("<li><span class='title'>"+m.get("title")+"</span> <a href='"+m.get('body.site')+"' target='_blank'> -> </a></li>")
+                            that.$("ul.startups").append("<li data-id='"+m.id+"'><span class='title'>"+m.get("title")+"</span> <a href='"+m.get('body.site')+"' target='_blank'> -> </a><button class='delete'>x</button></li>")
                         })
-                        
                     },data:{"group":"startup"}
                 })
              
             
+            },deleteStartup:function(e){
+                var that = this;
+                var id =  $(e.currentTarget).parent().data("id");
+                that.items.get(id).destroy();
             },signup:function(){
                var that       = this;
                 that.items.create({"title":"Haystack"
