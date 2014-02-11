@@ -1,6 +1,6 @@
 module.exports = 
 {
-	 "title" : "Live Sqrd"
+	 "title" : "Made In Yerevan"
 	,"api"		: {
 				}
 	,"useAuth" 	: false
@@ -14,10 +14,10 @@ module.exports =
 	,"views" 	: "client/views"
 	,"favicon"	: "client/org/img/favicon.ico"
 	,"git"		: {
-					 "autopull"	:false
-					,"devs"		:["lsqio"]
+					 "autopull"	:true
+					,"devs"		:["lsqio","ArtakNiazyan"]
 					,"branch"	:"master"
-					,"repo"		:"git@github.com:LiveSqrd/client.git"
+					,"repo"		:"git@github.com:ArtakNiazyan/MadeInYerevan.git"
 				}
 }
 
