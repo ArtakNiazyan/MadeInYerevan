@@ -15,6 +15,8 @@
             render:function(){
                 var that       = this;
                 that.$el.html(this.home({}))
+                console.log("instance ",that.___.i)
+                console.log("client   ",that.___.c)
                /* that.items.fetch({
                     success:function(){
                     },data:{}
