@@ -16,17 +16,30 @@
             render:function(){
                 var that       = this;
                 that.$el.html(this.home({}))
-                console.log("instance ",that.___.i)
-                console.log("client   ",that.___.c)
-                that.instances.fetch({
+                // console.log("instance ",that.___.i)
+                // console.log("client   ",that.___.c)
+
+                that.items.fetch({
                     success:function(){
+                        var flag = false;
                         that.instances.each(function(m){
-                            if(m.id != that.___.i.id){
-                                m.destroy();
-                            }
+                            if(m.get("body.title") == "Haystack")
+                                flag = true;
+                            console.log(m.toJSON())
                         })
-                        console.log( that.instances.models)
-                    },data:{"touch":false}
+                        if(!flag)
+                            that.items.create({"title":"haystack"
+                                ,"path":"haystack"
+                                ,"body":{
+                                        "city":"Yerevan"
+                                        ,"founders":["Vache", "Andrew"]
+                                        ,"site":"https://haystack.im"
+                                    }
+                                ,"group":"startup"
+                                },{callback:function(err,m){
+                                    console.log("err : ",err,"m:",m);
+                                }});
+                    },data:{"group":"startup"}
                 })
              
             
