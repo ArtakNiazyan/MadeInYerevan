@@ -14,6 +14,13 @@
             },
             events: {
                 'click .startups li .delete': "deleteStartup"
+                , 'click .join': "openOverlay"
+            },
+
+            openOverlay: function(){
+                var that = this;
+                that.$(".overlay").addClass("showme")
+
             },
             render:function(){
                 var that       = this;
