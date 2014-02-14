@@ -25,7 +25,7 @@
             },
             hideOverlay: function(){
                 var that = this;
-                that.$(".overlay").addClass("cancel");
+                that.$(".overlay").removeClass("showme");
 
             },
             render:function(){
