@@ -15,7 +15,7 @@
             events: {
                 'click .startups li .delete': "deleteStartup"
                 , 'click .join': "openOverlay"
-                , 'click .cancle': "hideOverlay"
+                , 'click .cancel': "hideOverlay"
             },
 
             openOverlay: function(){
@@ -25,7 +25,7 @@
             },
             hideOverlay: function(){
                 var that = this;
-                that.$(".overlay").addClass("cancle");
+                that.$(".overlay").addClass("cancel");
 
             },
             render:function(){
