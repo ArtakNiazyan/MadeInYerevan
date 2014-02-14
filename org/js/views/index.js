@@ -15,11 +15,17 @@
             events: {
                 'click .startups li .delete': "deleteStartup"
                 , 'click .join': "openOverlay"
+                , 'click .cancle': "hideOverlay"
             },
 
             openOverlay: function(){
                 var that = this;
-                that.$(".overlay").addClass("showme")
+                that.$(".overlay").addClass("showme");
+
+            },
+            hideOverlay: function(){
+                var that = this;
+                that.$(".overlay").addClass("cancle");
 
             },
             render:function(){
