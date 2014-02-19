@@ -41,18 +41,18 @@
                 // console.log("client   ",that.___.c)
 
                 that.items.fetch({
-                    success:function(){
-                        that.items.each(function(m){
+                    success:function(){                        
+                        
+                        that.items.each(function(m){                            
                             console.log(m.toJSON())                            
-                            that.$("ul.startups").append(that.startupSingle(_.extend({
-                                id: "",
-                                title: "",
-                                founders: "",
-                                city: "",
-                                group: "",
-                                site: ""}, m.toJSON() )));
+                            that.$("ul.startups").append(
+                                that.startupSingle(m.toJSON())
+                            );
                         });
-                    }, data:{"group":"startup"}
+
+                    }
+                    , data: {"group":"startup"}
+                    , error :
                 });
              
             
@@ -61,19 +61,20 @@
                 var id =  $(e.currentTarget).parent().data("id");
                 that.items.get(id).destroy();
             },signup:function(){
-               var that       = this;
+               var that       = this;                
 
-               that.
-
-                that.items.create({"title":"Haystack"
-                    ,"path":"haystack"
+                that.items.create({
+                    "title":"Haystack"
+                    ,"path": ""
                     ,"body":{
                             "city":"Yerevan"
                             ,"founders":["Vache", "Andrew"]
                             ,"site":"https://haystack.im"
                         }
                     ,"group":"startup"
-                    },{callback:function(json,m){
+                    }
+
+                    ,{callback:function(json,m){
                         console.log("m:",m);
                     }});
             },removeStartup:function(m){
