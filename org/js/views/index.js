@@ -97,7 +97,7 @@
                 }
                 $('.founder_input').val("");
             },remove_founder: function(e){
-                e.currentTarget.parent().remove();
+                $(e.currentTarget).parent().remove();
             }
 
     });
