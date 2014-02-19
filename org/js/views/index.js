@@ -16,6 +16,7 @@
                 'click .startups li .delete': "deleteStartup"
                 , 'click .join': "openOverlay"
                 , 'click .cancel': "hideOverlay"
+                , 'click .add': "signup"
             },
 
             openOverlay: function(){
