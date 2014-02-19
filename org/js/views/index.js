@@ -62,20 +62,14 @@
             },signup:function(){
                var that       = this;                
 
-                that.items.create({
-                    "title":"Haystack"
-                    ,"path": ""
-                    ,"body":{
-                            "city":"Yerevan"
-                            ,"founders":["Vache", "Andrew"]
-                            ,"site":"https://haystack.im"
+                that.items.create(
+                    {"title":"hello"}     
+                    ,{
+                        callback:function(json,m){
+                            console.log("m:",m);
                         }
-                    ,"group":"startup"
                     }
-
-                    ,{callback:function(json,m){
-                        console.log("m:",m);
-                    }});
+                );
             },removeStartup:function(m){
                 this.$("li[data-id='"+m.id+"']").remove();
             }
