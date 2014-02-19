@@ -21,7 +21,8 @@
                 'click .startups li .delete': "deleteStartup"
                 , 'click .join': "openOverlay"
                 , 'click .cancel': "hideOverlay"
-                , 'click .add': "signup"
+                , 'click .add': "signup",
+                , 'click .add_founder': "add_founder"
             },
 
             openOverlay: function(){
@@ -62,26 +63,40 @@
             },signup:function(){
                var that       = this;                
 
-                that.items.create(
-                    {
-                        "title":($("#company_name").val()),
-                        "body":{
-                            "founders" : ($("#founders").val()),
-                            "city" : ($("#city").val()),
-                            "url" : ($("#url").val())
+                var itemObj = {
+                    "title":($("#company_name").val()),
+                    "body":{
+                        "founders" : ($("#founders input").each($(this).val()),
+                        "city" : ($("#city").val()),
+                        "url" : ($("#url").val())
 
-                        },
-                        "group":"startup"
+                    },
+                    "group":"startup"
+                };
+
+                itemObj.titie = 
+                itemObj[titke]
+
+                that.items.create(itemObj,{
+                    callback:function(json,m){
+                        console.log("m:",m);
                     }
-                    ,{
-                        callback:function(json,m){
-                            console.log("m:",m);
-                        }
-                    }
-                );
+                });
             },removeStartup:function(m){
                 this.$("li[data-id='"+m.id+"']").remove();
+            },add_founder:function(){
+                var that = this;
+                if ($('.founder_input').val().length>2){
+                    $(".founders").append(
+                        "<li>"+$('.founder_input').val()+"<button class='remove_founder'>-<button></li>"
+                    );
+                }
+                else{
+                    $('.founder_input').attr("placeholder","please add more shit");
+                }
+                $('.founder_input').val("");
             }
+
     });
 });
 
