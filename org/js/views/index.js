@@ -62,12 +62,18 @@
                 var id =  $(e.currentTarget).parent().data("id");
                 that.items.get(id).destroy();
             },signup:function(){
-               var that       = this;                
+                var that       = this;                
+
+                var founders = [];
+
+                $(".founders li").each(function(){
+                    founders.push($(this).children("h3").html());
+                });
 
                 var itemObj = {
                     "title":($("#company_name").val()),
                     "body":{
-                        "founders" : $("#founders input").each($(this).val()),
+                        "founders" : founders,
                         "city" : ($("#city").val()),
                         "url" : ($("#url").val())
 
@@ -89,7 +95,7 @@
                 var that = this;
                 if ($('.founder_input').val().length>2){
                     $(".founders").append(
-                        "<li>"+$('.founder_input').val()+"<button class='remove_founder'>-</button></li>"
+                        "<li><h3>"+$('.founder_input').val()+"</h3><button class='remove_founder'>-</button></li>"
                     );
                 }
                 else{
