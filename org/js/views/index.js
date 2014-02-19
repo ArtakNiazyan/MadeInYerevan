@@ -81,12 +81,12 @@
                     "group":"startup"
                 };
                 
-                console.log(itemObj);
-                // that.items.create(itemObj,{
-                //     callback:function(json,m){
-                //         console.log("m:",m);
-                //     }
-                // });
+                // console.log(itemObj);
+                that.items.create(itemObj,{
+                    callback:function(json,m){
+                        console.log("m:",m);
+                    }
+                });
             },removeStartup:function(m){
                 this.$("li[data-id='"+m.id+"']").remove();
             },add_founder:function(){
