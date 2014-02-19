@@ -44,7 +44,7 @@
                     success:function(){
                         that.items.each(function(m){
                             console.log(m.toJSON())                            
-                            that.$("ul.startups").append(that.searchImageEnlarge(_.extend({
+                            that.$("ul.startups").append(that.startupSingle(_.extend({
                                 id: "",
                                 title: "",
                                 founders: "",
