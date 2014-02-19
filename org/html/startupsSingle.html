@@ -1,6 +1,6 @@
 <li id="<%= _id %>">
 	<h3 class="title"><%= title %></h3>
-	<h4><%= body.founders %></h4>
+	<h4><%= body.founders.join(', ') %></h4>
 	<h4><%= body.city %></h4>	
 	<a href="<%= body.site %>" target='_blank'>View Company</a>	
 </li>
