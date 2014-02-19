@@ -63,7 +63,7 @@
                var that       = this;                
 
                 that.items.create(
-                    {"title":($("#company_name"))}     
+                    {"title":($("#company_name").val())}
                     ,{
                         callback:function(json,m){
                             console.log("m:",m);
