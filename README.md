@@ -119,3 +119,30 @@ Once the fetch is performed on the items we can now iterate through them using e
         , data: {"group":"startup"}        
     });
 ```
+
+
+Creating New Item
+====
+
+Once your items has been initilized you can put things into it.
+In this Example the item is populated from input fields in the View.
+
+```
+    that.items.create(
+        {
+            "title":($("#company_name").val()),
+            "body":{
+                "founders" : ($("#founders").val()),
+                "city" : ($("#city").val()),
+                "url" : ($("#url").val())
+
+            },
+            "group":"startup"
+        }
+        ,{
+            callback:function(json,m){
+                console.log("m:",m);
+            }
+        }
+    );
+```
