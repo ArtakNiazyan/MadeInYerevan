@@ -43,21 +43,12 @@
                 that.items.fetch({
                     success:function(){
                         that.items.each(function(m){
-                            console.log(m.toJSON())
-                            // that.$("ul.startups").append("<li data-id='"+m.id+"'><span class='title'>"+m.get("title")+"</span> <a href='"+m.get('body.site')+"' target='_blank'> -> </a><button class='delete'>x</button></li>")
-                            that.$("ul.startups").append(
-                                that.searchImageEnlarge(
-                                    _.extend({
-                                        id: "", 
-                                        title: "", 
-                                        founders: "", 
-                                        city: "", 
-                                        group: "", 
-                                        site: ""}, m
-                                    ))
-                            )
-                    },data:{"group":"startup"}
-                })
+                            console.log(m.toJSON())                            
+                            that.$("ul.startups").append(that.searchImageEnlarge(_.extend({id: "", title: "", founders: "", city: "", group: "", site: ""}, m )));
+                        },
+                        data:{"group":"startup"});
+                    }
+                });
              
             
             },deleteStartup:function(e){
