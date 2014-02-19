@@ -44,9 +44,14 @@
                     success:function(){
                         that.items.each(function(m){
                             console.log(m.toJSON())                            
-                            that.$("ul.startups").append(that.searchImageEnlarge(_.extend({id: "", title: "", founders: "", city: "", group: "", site: ""}, m )));
-                        },
-                        data:{"group":"startup"});
+                            that.$("ul.startups").append(that.searchImageEnlarge(_.extend({
+                                id: "",
+                                title: "",
+                                founders: "",
+                                city: "",
+                                group: "",
+                                site: ""}, m )));
+                        }, data:{"group":"startup"});
                     }
                 });
              
