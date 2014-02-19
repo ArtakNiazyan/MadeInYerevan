@@ -1,5 +1,5 @@
 (function() {
-    define(['require', 'jquery', 'underscore', 'bb', 'i/item/c', 'i/instance/c','text!/html/index.html','text!/html/startupSingle.html'], function(require, $, _, Backbone, Items,Instances) {
+    define(['require', 'jquery', 'underscore', 'bb', 'i/item/c', 'i/instance/c','text!/html/index.html','text!/html/startupsSingle.html'], function(require, $, _, Backbone, Items,Instances) {
         return Backbone.View.extend({
             id: 'index',
             initialize: function(options) {
@@ -11,7 +11,7 @@
                 var Home = require('text!/html/index.html');
                 this.home = _.template(Home);
                 
-                var StartupSingle = require('text!/html/startupSingle.html');
+                var StartupSingle = require('text!/html/startupsSingle.html');
                 this.startupSingle = _.template(StartupSingle);
                 
                 that.render();
