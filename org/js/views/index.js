@@ -88,7 +88,7 @@
                 var that = this;
                 if ($('.founder_input').val().length>2){
                     $(".founders").append(
-                        "<li>"+$('.founder_input').val()+"<button class='remove_founder'>-<button></li>"
+                        "<li>"+$('.founder_input').val()+"<button class='remove_founder'>-</button></li>"
                     );
                 }
                 else{
