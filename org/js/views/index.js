@@ -23,6 +23,7 @@
                 , 'click .cancel': "hideOverlay"
                 , 'click .add': "signup"
                 , 'click .add_founder': "add_founder"
+                , 'click .remove_founder': "remove_founder"
             },
 
             openOverlay: function(){
@@ -95,6 +96,8 @@
                     $('.founder_input').attr("placeholder","please add more shit");
                 }
                 $('.founder_input').val("");
+            },remove_founder: function(e){
+                e.currentTarget.parent().remove();
             }
 
     });
