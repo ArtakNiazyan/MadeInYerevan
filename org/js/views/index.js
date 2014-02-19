@@ -51,8 +51,8 @@
                                 city: "",
                                 group: "",
                                 site: ""}, m.toJSON() )));
-                        }, data:{"group":"startup"});
-                    }
+                        });
+                    }, data:{"group":"startup"}
                 });
              
             
