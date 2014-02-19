@@ -21,7 +21,7 @@
                 'click .startups li .delete': "deleteStartup"
                 , 'click .join': "openOverlay"
                 , 'click .cancel': "hideOverlay"
-                , 'click .add': "signup",
+                , 'click .add': "signup"
                 , 'click .add_founder': "add_founder"
             },
 
