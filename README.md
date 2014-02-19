@@ -103,7 +103,7 @@ define(['require', 'jquery', 'underscore', 'bb', 'i/item/c']
 
 3rd Part: Here we can use the items to perform several functions, in this case fetch. 
 Fetch is a Backbone function with LiveSqrd Extensions and Options such as success, error etc. 
-Once the fetch is performed on the items we can now itirate through them using each, in this case we are printing a log and appending the model to a template
+Once the fetch is performed on the items we can now iterate through them using each, in this case we are printing a log and appending the model to a template
 
 ```
     that.items.fetch({

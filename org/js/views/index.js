@@ -51,8 +51,7 @@
                         });
 
                     }
-                    , data: {"group":"startup"}
-                    , error :
+                    , data: {"group":"startup"}                    
                 });
              
             
