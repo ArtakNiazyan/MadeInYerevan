@@ -50,7 +50,7 @@
                                 founders: "",
                                 city: "",
                                 group: "",
-                                site: ""}, m )));
+                                site: ""}, m.toJSON() )));
                         }, data:{"group":"startup"});
                     }
                 });
