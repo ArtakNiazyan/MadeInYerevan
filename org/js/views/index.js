@@ -1,5 +1,5 @@
 (function() {
-    define(['require', 'jquery', 'underscore', 'bb', 'i/item/c', 'i/instance/c','text!/html/index.html'], function(require, $, _, Backbone, Items,Instances) {
+    define(['require', 'jquery', 'underscore', 'bb', 'i/item/c', 'i/instance/c','text!/html/index.html','text!/html/startupSingle.html'], function(require, $, _, Backbone, Items,Instances) {
         return Backbone.View.extend({
             id: 'index',
             initialize: function(options) {
@@ -7,8 +7,13 @@
                 this.___ = options.___;
                 this.items = new Items(null,{ s: this.___.so});
                 this.instances = new Instances(null,{ s: this.___.so});
+                
                 var Home = require('text!/html/index.html');
                 this.home = _.template(Home);
+                
+                var StartupSingle = require('text!/html/startupSingle.html');
+                this.startupSingle = _.template(StartupSingle);
+                
                 that.render();
                 this.items.on("remove",that.removeStartup,that)
             },
@@ -39,8 +44,18 @@
                     success:function(){
                         that.items.each(function(m){
                             console.log(m.toJSON())
-                            that.$("ul.startups").append("<li data-id='"+m.id+"'><span class='title'>"+m.get("title")+"</span> <a href='"+m.get('body.site')+"' target='_blank'> -> </a><button class='delete'>x</button></li>")
-                        })
+                            // that.$("ul.startups").append("<li data-id='"+m.id+"'><span class='title'>"+m.get("title")+"</span> <a href='"+m.get('body.site')+"' target='_blank'> -> </a><button class='delete'>x</button></li>")
+                            that.$("ul.startups").append(
+                                that.searchImageEnlarge(
+                                    _.extend({
+                                        id: "", 
+                                        title: "", 
+                                        founders: "", 
+                                        city: "", 
+                                        group: "", 
+                                        site: ""}, m
+                                    ))
+                            );
                     },data:{"group":"startup"}
                 })
              
@@ -51,6 +66,9 @@
                 that.items.get(id).destroy();
             },signup:function(){
                var that       = this;
+
+               that.
+
                 that.items.create({"title":"Haystack"
                     ,"path":"haystack"
                     ,"body":{
