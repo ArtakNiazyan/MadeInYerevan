@@ -66,7 +66,7 @@
                 var itemObj = {
                     "title":($("#company_name").val()),
                     "body":{
-                        "founders" : ($("#founders input").each($(this).val()),
+                        "founders" : $("#founders input").each($(this).val()),
                         "city" : ($("#city").val()),
                         "url" : ($("#url").val())
 
