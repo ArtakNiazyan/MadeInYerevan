@@ -70,7 +70,8 @@
                             "city" : ($("#city").val()),
                             "url" : ($("#url").val())
 
-                        }
+                        },
+                        "group":"startup"
                     }
                     ,{
                         callback:function(json,m){
