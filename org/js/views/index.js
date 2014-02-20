@@ -59,7 +59,7 @@
             
             },deleteStartup:function(e){
                 var that = this;
-                var id =  $(e.currentTarget).parent().data("id");
+                var id =  $(e.currentTarget).parent().attr("id");
                 that.items.get(id).destroy();
             },signup:function(){
                 var that       = this;                
