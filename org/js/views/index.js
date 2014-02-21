@@ -45,20 +45,19 @@
                 that.$el.html(this.home({}))
                 // console.log("instance ",that.___.i)
                 // console.log("client   ",that.___.c)
-                updateStartups();
-                // that.items.fetch({
-                //     success:function(){                        
+                that.items.fetch({
+                    success:function(){                        
                         
-                //         that.items.each(function(m){                            
-                //             console.log(m.toJSON())                            
-                //             that.$("ul.startups").append(
-                //                 that.startupSingle(m.toJSON())
-                //             );
-                //         });
+                        that.items.each(function(m){                            
+                            console.log(m.toJSON())                            
+                            that.$("ul.startups").append(
+                                that.startupSingle(m.toJSON())
+                            );
+                        });
 
-                //     }
-                //     , data: {"group":"startup"}                    
-                // });
+                    }
+                    , data: {"group":"startup"}                    
+                });
              
             
             },
