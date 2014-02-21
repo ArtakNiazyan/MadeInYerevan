@@ -6,6 +6,8 @@
                 var that = this;
                 this.___ = options.___;
                 this.items = new Items(null,{ s: this.___.so});
+                this.items.on('change:' that.render, that)
+                this.items.on("remove",that.removeStartup,that)
                 this.instances = new Instances(null,{ s: this.___.so});
                 
                 var Home = require('text!/html/index.html');
@@ -15,7 +17,8 @@
                 this.startupSingle = _.template(StartupSingle);
                 
                 that.render();
-                this.items.on("remove",that.removeStartup,that)
+                
+
             },
             events: {
                 'click .startups li .delete': "deleteStartup"
