@@ -62,6 +62,7 @@
             
             },
             updateStartups : function (){
+                console.log("sdsd");
                 that.items.fetch({
                     success:function(){                             
                         that.items.each(function(m){                                            
