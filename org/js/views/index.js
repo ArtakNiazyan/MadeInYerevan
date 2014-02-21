@@ -6,7 +6,7 @@
                 var that = this;
                 this.___ = options.___;
                 this.items = new Items(null,{ s: this.___.so});
-                console.log(items);
+                console.log(this.items);
                 this.items.on('change:', this.updateStartups, this);
                 this.items.on("remove",that.removeStartup,that);
                 this.instances = new Instances(null,{ s: this.___.so});
