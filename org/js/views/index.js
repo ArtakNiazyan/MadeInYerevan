@@ -64,8 +64,10 @@
             updateStartups : function (){
                 console.log("sdsd");
                 that.items.fetch({
-                    success:function(){                             
+                    success:function(){
+
                         that.items.each(function(m){                                            
+                    console.log("asdsd", m);
                             that.$("ul.startups").append(
                                 that.startupSingle(m.toJSON())
                             );
