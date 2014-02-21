@@ -45,20 +45,20 @@
                 that.$el.html(this.home({}))
                 // console.log("instance ",that.___.i)
                 // console.log("client   ",that.___.c)
-
-                that.items.fetch({
-                    success:function(){                        
+                updateStartups();
+                // that.items.fetch({
+                //     success:function(){                        
                         
-                        that.items.each(function(m){                            
-                            console.log(m.toJSON())                            
-                            that.$("ul.startups").append(
-                                that.startupSingle(m.toJSON())
-                            );
-                        });
+                //         that.items.each(function(m){                            
+                //             console.log(m.toJSON())                            
+                //             that.$("ul.startups").append(
+                //                 that.startupSingle(m.toJSON())
+                //             );
+                //         });
 
-                    }
-                    , data: {"group":"startup"}                    
-                });
+                //     }
+                //     , data: {"group":"startup"}                    
+                // });
              
             
             },
@@ -77,11 +77,11 @@
                     }
                     , data: {"group":"startup"}                    
                 });
-            },
-            deleteStartup:function(e){
+            },deleteStartup:function(e){
                 var that = this;
                 var id =  $(e.currentTarget).parent().attr("id");
                 that.items.get(id).destroy();
+
             },signup:function(){
                 var that       = this;                
 
@@ -109,7 +109,9 @@
                     }
                 });
             },removeStartup:function(m){
+
                 this.$("li[data-id='"+m.id+"']").remove();
+
             },add_founder:function(){
                 var that = this;
                 if ($('.founder_input').val().length>2){
