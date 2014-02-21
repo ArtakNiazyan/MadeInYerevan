@@ -6,8 +6,8 @@
                 var that = this;
                 this.___ = options.___;
                 this.items = new Items(null,{ s: this.___.so});
-                this.items.on('change:' that.render, that)
-                this.items.on("remove",that.removeStartup,that)
+                this.items.on('change', that.updateStartups, that);
+                this.items.on("remove",that.removeStartup,that);
                 this.instances = new Instances(null,{ s: this.___.so});
                 
                 var Home = require('text!/html/index.html');
@@ -60,7 +60,20 @@
                 });
              
             
-            },deleteStartup:function(e){
+            },
+            updateStartups : function (){
+                that.items.fetch({
+                    success:function(){                             
+                        that.items.each(function(m){                                            
+                            that.$("ul.startups").append(
+                                that.startupSingle(m.toJSON())
+                            );
+                        });
+                    }
+                    , data: {"group":"startup"}                    
+                });
+            },
+            deleteStartup:function(e){
                 var that = this;
                 var id =  $(e.currentTarget).parent().attr("id");
                 that.items.get(id).destroy();
