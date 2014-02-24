@@ -84,7 +84,7 @@
                                 $("ul.startups li").each(function(){
                                     if($(this).not("#"+m.id)){
 
-                                        console.log("updateStartups",(new Date()),m.id, $(this).attr(id));                      
+                                        console.log("updateStartups",(new Date()),m.id, $(this).attr("id"));                      
                                         // console.log("updateStartups",(new Date()),m);        
                                     }
                                 });                                
