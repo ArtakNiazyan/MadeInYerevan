@@ -78,7 +78,7 @@
                 var that = this;
                 that.items.fetch({
                     success:function(itemsCallback){
-                        if(itemsCallback.length>=1){
+                        if(itemsCallback.length>=2){
                             console.log(itemsCallback.length)
                             that.items.each(function(m){
                                 $("ul.startups li").each(function(){
