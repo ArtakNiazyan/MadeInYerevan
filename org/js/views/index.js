@@ -80,7 +80,7 @@
                     success:function(){
                         that.items.each(function(m){                             
                             $("ul.startups li").each(function(){
-                                if ((m.length>0) && ($(this).not("#"id))){
+                                if ((m.length>0) && ($(this).not("#"+id))){
                                     console.log("updateStartups",(new Date()),m);        
                                 }
                             });
