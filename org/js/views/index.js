@@ -68,14 +68,21 @@
 
                         that.items.each(function(m){ 
                             console.log("asdsd", m.id);
-                            $("ul.startups li").each(function(){
-                                if(!($(this).attr("id")=m.id)){
+                            
+                            if(m.length>0){
+                                $("ul.startups li").each(function(){
+                                    if(!($(this).attr("id")=m.id)){
+                                        that.$("ul.startups").append(
+                                            that.startupSingle(m.toJSON())
+                                        );
 
-                                    that.$("ul.startups").append(
-                                        that.startupSingle(m.toJSON())
-                                    );
-                                }
-                            });
+                                    }
+                                });
+                            } else{
+                                that.$("ul.startups").append(
+                                    that.startupSingle(m.toJSON())
+                                );
+                            }
 
                             
 
