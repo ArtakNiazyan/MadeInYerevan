@@ -79,7 +79,7 @@
                 that.items.fetch({
                     success:function(itemsCallback){                        
                         if(itemsCallback.length>0){
-                            console.log(itemsCallback.length>0)
+                            console.log(itemsCallback.length)
                             that.items.each(function(m){                            
                                 $("ul.startups li").each(function(){
                                     if ($(this).not("#"+m.id)){
