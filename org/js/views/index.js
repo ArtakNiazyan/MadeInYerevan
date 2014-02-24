@@ -83,7 +83,7 @@
                 var that = this;
                 var id =  $(e.currentTarget).parent().attr("id");
                 that.items.get(id).destroy();            
-                this.$("li[data-id='"+m.id+"']").remove();            
+                that.$("#"+id).remove();            
             },signup:function(){
                 var that       = this;                
 
