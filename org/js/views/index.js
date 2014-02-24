@@ -49,20 +49,16 @@
                 // console.log("instance ",that.___.i)
                 // console.log("client   ",that.___.c)
                 that.items.fetch({
-                    success:function(){                        
-                        
+                    success:function(){                                                
                         that.items.each(function(m){                            
                             console.log(m.toJSON())                            
                             that.$("ul.startups").append(
                                 that.startupSingle(m.toJSON())
                             );
                         });
-
                     }
                     , data: {"group":"startup"}                    
                 });
-             
-            
             },
             updateStartups : function (){
                 console.log("sdsd");
@@ -70,11 +66,18 @@
                 that.items.fetch({
                     success:function(){
 
-                        that.items.each(function(m){                                            
-                    console.log("asdsd", m);
-                            that.$("ul.startups").append(
-                                that.startupSingle(m.toJSON())
-                            );
+                        that.items.each(function(m){                                                                        
+                            console.log("asdsd", m.id);
+                            $("ul.startups li").each(function{
+                                if(!($(this).attr("id")=m.id)){
+                                    that.$("ul.startups").append(
+                                        that.startupSingle(m.toJSON())
+                                    );
+                                }
+                            });
+
+                            
+
                         });
                     }
                     , data: {"group":"startup"}                    
