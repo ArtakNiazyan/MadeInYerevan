@@ -89,7 +89,7 @@
                                 });                                
                             });
                         }else{
-                            
+                            console.log("else")
                         }
                         $("ul.startups").append(
                             that.startupSingle(m.toJSON())
