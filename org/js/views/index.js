@@ -81,10 +81,10 @@
                         if(itemsCallback.length>0){
                             console.log(itemsCallback.length)
                             that.items.each(function(m){            
-                                console.log(m.id)                
+                                console.log("updateStartups",(new Date()),m.id);                      
                                 $("ul.startups li").each(function(){
                                     if ($(this).not("#"+m.id)){
-                                        console.log("updateStartups",(new Date()),m);        
+                                        // console.log("updateStartups",(new Date()),m);        
                                     }
                                 });                                
                             });
