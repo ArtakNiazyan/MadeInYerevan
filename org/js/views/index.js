@@ -78,17 +78,17 @@
                 var that = this;
                 that.items.fetch({
                     success:function(itemsCallback){
-                        if(itemsCallback.length>=2){                            
+                        if((itemsCallback.length>=2)){                            
                             that.items.each(function(m){
                                 $("ul.startups li").each(function(){
-                                    if($(this).attr("id")!=m.id){
-                                        console.log("updateStartups",(new Date()),m.id, $(this).attr("id"));
+                                    $(this).attr("id");
+                                    // if($(this).attr("id")!=m.id){                                        
+                                    //     console.log("updateStartups",(new Date()),m.id, $(this).attr("id"));
+                                    //     that.$("ul.startups").append(
+                                    //         that.startupSingle(m.toJSON())
+                                    //     );
+                                    // }
 
-                                        that.$("ul.startups").append(
-                                            that.startupSingle(m.toJSON())
-                                        );
-
-                                    }
                                 });                                
                             });
                         } else{                            
