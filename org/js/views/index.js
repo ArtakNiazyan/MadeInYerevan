@@ -7,9 +7,11 @@
                 this.___ = options.___;
                 this.items = new Items(null,{ s: this.___.so});
                 console.log(this.items);
-                this.items.on('create', this.updateStartups, this);
-                this.items.on("remove",that.removeStartup,that);
-                this.items.on('delete',this.deleteStartup, this);
+                this.items.on("create", this.updateStartups, this);
+                
+                // this.items.on("remove", this.removeStartup,  this);
+                this.items.on("delete", this.deleteStartup,  this);
+                
                 this.instances = new Instances(null,{ s: this.___.so});
                 
                 var Home = require('text!/html/index.html');
@@ -80,8 +82,8 @@
             },deleteStartup:function(e){
                 var that = this;
                 var id =  $(e.currentTarget).parent().attr("id");
-                that.items.get(id).destroy();
-
+                that.items.get(id).destroy();            
+                this.$("li[data-id='"+m.id+"']").remove();            
             },signup:function(){
                 var that       = this;                
 
@@ -107,12 +109,7 @@
                     callback:function(json,m){
                         console.log("m:",m);
                     }
-                });
-            },removeStartup:function(m){
-                console.log("foo");
-
-                this.$("li[data-id='"+m.id+"']").remove();
-
+                });            
             },add_founder:function(){
                 var that = this;
                 if ($('.founder_input').val().length>2){
