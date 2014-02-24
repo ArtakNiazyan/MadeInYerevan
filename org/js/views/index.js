@@ -78,19 +78,14 @@
                 var that = this;
                 that.items.fetch({
                     success:function(itemsCallback){
-                        if((itemsCallback.length>1)){
-                                $("ul.startups li").each(function(){
-                                    that.items.each(function(m){
-                                        if($(this).attr("id")!=m.id){
-                                            console.log("updateStartups",(new Date()),m.id, $(this).attr("id"));
-                                            that.$("ul.startups").append(
-                                                that.startupSingle(m.toJSON())
-                                            );
-                                        }
-                                    });
-                                    console.log($(this).attr("id"));
-                                });
-
+                        if((itemsCallback.length>1)){                                
+                            that.items.each(function(m){
+                                if (!($('#'+m.id).length > 0)) { 
+                                    that.$("ul.startups").append(
+                                        that.startupSingle(m.toJSON())
+                                    );
+                                }
+                            });                            
                         } else {                            
                             that.items.each(function(m){
                                 console.log("only one append");
