@@ -82,7 +82,8 @@
                             console.log(itemsCallback.length)
                             that.items.each(function(m){
                                 $("ul.startups li").each(function(){
-                                    if ($(this).not("#"+m.id)){
+                                    if($(this).not("#"+m.id)){
+                                        $(this).attr(id);
                                         console.log("updateStartups",(new Date()),m.id);                      
                                         // console.log("updateStartups",(new Date()),m);        
                                     }
