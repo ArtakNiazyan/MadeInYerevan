@@ -78,9 +78,8 @@
                 var that = this;
                 that.items.fetch({
                     success:function(itemsCallback){
-                        if((itemsCallback.length>=2)){                                                        
+                        if((itemsCallback.length>1)){
                                 $("ul.startups li").each(function(){
-                                    console.log($(this).attr("id"));
                                     that.items.each(function(m){
                                         if($(this).attr("id")!=m.id){
                                             console.log("updateStartups",(new Date()),m.id, $(this).attr("id"));
@@ -89,9 +88,10 @@
                                             );
                                         }
                                     });
+                                    console.log($(this).attr("id"));
                                 });
 
-                        } else{                            
+                        } else {                            
                             that.items.each(function(m){
                                 console.log("only one append");
                                 that.$("ul.startups").append(
