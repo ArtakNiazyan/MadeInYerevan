@@ -94,7 +94,7 @@
                                 $("ul.startups").append(
                                     that.startupSingle(m.toJSON())
                                 );
-                            }                            
+                            });                            
                         }
                         
                     }, 
