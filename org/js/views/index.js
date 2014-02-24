@@ -77,8 +77,9 @@
             },updateStartups : function (){                
                 var that = this;
                 that.items.fetch({
-                    success:function(itemsCallback){
+                    success:function(itemsCallback){                        
                         if(itemsCallback.length>0){
+                            console.log(itemsCallback.length>0)
                             that.items.each(function(m){                            
                                 $("ul.startups li").each(function(){
                                     if ($(this).not("#"+m.id)){
