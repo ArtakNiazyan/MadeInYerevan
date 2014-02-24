@@ -78,19 +78,19 @@
                 var that = this;
                 that.items.fetch({
                     success:function(itemsCallback){
-                        if((itemsCallback.length>=2)){                            
-                            that.items.each(function(m){
+                        if((itemsCallback.length>=2)){                                                        
                                 $("ul.startups li").each(function(){
                                     console.log($(this).attr("id"));
-                                    // if($(this).attr("id")!=m.id){                                        
-                                    //     console.log("updateStartups",(new Date()),m.id, $(this).attr("id"));
-                                    //     that.$("ul.startups").append(
-                                    //         that.startupSingle(m.toJSON())
-                                    //     );
-                                    // }
+                                    that.items.each(function(m){
+                                        if($(this).attr("id")!=m.id){
+                                            console.log("updateStartups",(new Date()),m.id, $(this).attr("id"));
+                                            that.$("ul.startups").append(
+                                                that.startupSingle(m.toJSON())
+                                            );
+                                        }
+                                    });
+                                });
 
-                                });                                
-                            });
                         } else{                            
                             that.items.each(function(m){
                                 console.log("only one append");
