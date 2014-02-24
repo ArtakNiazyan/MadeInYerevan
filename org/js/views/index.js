@@ -78,8 +78,13 @@
                 var that = this;
                 that.items.fetch({
                     success:function(){
-                        that.items.each(function(m){ 
-                            console.log("updateStartups",(new Date()),m);
+                        that.items.each(function(m){                             
+                            $("ul.startups li").each(function(){
+                                if ((m.length>0) && ($(this).not("#"id))){
+                                    console.log("updateStartups",(new Date()),m);        
+                                }
+                            });
+                            
                             // if(m.length>0){
                             //     $("ul.startups li").each(function(){
                             //         if(!($(this).attr("id")=m.id)){
@@ -94,6 +99,7 @@
                             //         that.startupSingle(m.toJSON())
                             //     );
                             // }
+
                         });
                     }, 
                     data: {"group":"startup"}                   
