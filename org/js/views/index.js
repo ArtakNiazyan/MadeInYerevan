@@ -88,12 +88,15 @@
                                     }
                                 });                                
                             });
-                        }else{
+                        } else{
                             console.log("else")
+                            that.items.each(function(m){
+                                $("ul.startups").append(
+                                    that.startupSingle(m.toJSON())
+                                );
+                            }                            
                         }
-                        $("ul.startups").append(
-                            that.startupSingle(m.toJSON())
-                        );
+                        
                     }, 
                     data: {"group":"startup"}                   
                 });
