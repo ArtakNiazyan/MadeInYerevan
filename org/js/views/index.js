@@ -66,10 +66,11 @@
                 that.items.fetch({
                     success:function(){
 
-                        that.items.each(function(m){                                                                        
+                        that.items.each(function(m){ 
                             console.log("asdsd", m.id);
-                            $("ul.startups li").each(function{
+                            $("ul.startups li").each(function(){
                                 if(!($(this).attr("id")=m.id)){
+
                                     that.$("ul.startups").append(
                                         that.startupSingle(m.toJSON())
                                     );
