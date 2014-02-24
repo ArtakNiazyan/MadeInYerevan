@@ -74,13 +74,12 @@
                         console.log("m:",m);
                     }
                 });
-            },updateStartups : function (){
-                console.log("sdsd");
+            },updateStartups : function (){                
                 var that = this;
                 that.items.fetch({
                     success:function(){
                         that.items.each(function(m){ 
-                            console.log(m);
+                            console.log("updateStartups",m);
                             // if(m.length>0){
                             //     $("ul.startups li").each(function(){
                             //         if(!($(this).attr("id")=m.id)){
