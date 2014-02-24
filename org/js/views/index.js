@@ -8,10 +8,7 @@
                 this.items = new Items(null,{ s: this.___.so});
                 console.log(this.items);
                 this.items.on("create", this.updateStartups, this);
-                
-                // this.items.on("remove", this.removeStartup,  this);
-                this.items.on("delete", this.deleteStartup,  this);
-                
+                this.items.on("delete", this.deleteStartup,  this);                
                 this.instances = new Instances(null,{ s: this.___.so});
                 
                 var Home = require('text!/html/index.html');
@@ -24,13 +21,12 @@
                 
 
             },
-            events: {
-                'click .startups li .delete': "deleteStartup"
-                , 'click .join': "openOverlay"
-                , 'click .cancel': "hideOverlay"
-                , 'click .add': "signup"
+            events: {                  
+                  'click .add': "createStartup"
+                , 'click .startups li .delete': "deleteStartup"
                 , 'click .add_founder': "add_founder"
                 , 'click .remove_founder': "remove_founder"
+                
             },
 
             openOverlay: function(){
@@ -45,9 +41,7 @@
             },
             render:function(){
                 var that       = this;
-                that.$el.html(this.home({}))
-                // console.log("instance ",that.___.i)
-                // console.log("client   ",that.___.c)
+                that.$el.html(this.home({}))                
                 that.items.fetch({
                     success:function(){                                                
                         that.items.each(function(m){                            
@@ -59,51 +53,12 @@
                     }
                     , data: {"group":"startup"}                    
                 });
-            },
-            updateStartups : function (){
-                console.log("sdsd");
-                var that = this;
-                that.items.fetch({
-                    success:function(){
-
-                        that.items.each(function(m){ 
-                            console.log("asdsd", m.id);
-                            
-                            if(m.length>0){
-                                $("ul.startups li").each(function(){
-                                    if(!($(this).attr("id")=m.id)){
-                                        that.$("ul.startups").append(
-                                            that.startupSingle(m.toJSON())
-                                        );
-
-                                    }
-                                });
-                            } else{
-                                that.$("ul.startups").append(
-                                    that.startupSingle(m.toJSON())
-                                );
-                            }
-
-                            
-
-                        });
-                    }
-                    , data: {"group":"startup"}                    
-                });
-            },deleteStartup:function(e){
-                var that = this;
-                var id =  $(e.currentTarget).parent().attr("id");
-                that.items.get(id).destroy();            
-                that.$("#"+id).remove();            
-            },signup:function(){
+            },createStartup:function(){
                 var that       = this;                
-
                 var founders = [];
-
                 $(".founders li").each(function(){
                     founders.push($(this).children("h3").html());
                 });
-
                 var itemObj = {
                     "title":($("#company_name").val()),
                     "body":{
@@ -113,14 +68,42 @@
 
                     },
                     "group":"startup"
-                };
-                
-                // console.log(itemObj);
+                };                                
                 that.items.create(itemObj,{
                     callback:function(json,m){
                         console.log("m:",m);
                     }
-                });            
+                });
+            },updateStartups : function (){
+                console.log("sdsd");
+                var that = this;
+                that.items.fetch({
+                    success:function(){
+                        that.items.each(function(m){ 
+                            console.log(m);
+                            // if(m.length>0){
+                            //     $("ul.startups li").each(function(){
+                            //         if(!($(this).attr("id")=m.id)){
+                            //             that.$("ul.startups").append(
+                            //                 that.startupSingle(m.toJSON())
+                            //             );
+
+                            //         }
+                            //     });
+                            // } else{
+                            //     that.$("ul.startups").append(
+                            //         that.startupSingle(m.toJSON())
+                            //     );
+                            // }
+                        });
+                    }, 
+                    data: {"group":"startup"}                   
+                });
+            },deleteStartup:function(e){
+                var that = this;
+                var id =  $(e.currentTarget).parent().attr("id");
+                that.items.get(id).destroy();            
+                that.$("#"+id).remove();            
             },add_founder:function(){
                 var that = this;
                 if ($('.founder_input').val().length>2){
