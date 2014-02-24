@@ -78,20 +78,20 @@
                 var that = this;
                 that.items.fetch({
                     success:function(itemsCallback){
-                        if(itemsCallback.length>=2){
-                            console.log(itemsCallback.length)
+                        if(itemsCallback.length>=2){                            
                             that.items.each(function(m){
                                 $("ul.startups li").each(function(){
                                     if($(this).not("#"+m.id)){
                                         console.log("updateStartups",(new Date()),m.id, $(this).attr("id"));                      
-                                        // console.log("updateStartups",(new Date()),m);        
+                                        that.$("ul.startups").append(
+                                            that.startupSingle(m.toJSON())
+                                        );        
                                     }
                                 });                                
                             });
-                        } else{
-                            console.log("else")
+                        } else{                            
                             that.items.each(function(m){
-                                $("ul.startups").append(
+                                that.$("ul.startups").append(
                                     that.startupSingle(m.toJSON())
                                 );
                             });                            
