@@ -93,7 +93,7 @@
                             });
                         } else{                            
                             that.items.each(function(m){
-                                console.("only one append")
+                                console.log("only one append");
                                 that.$("ul.startups").append(
                                     that.startupSingle(m.toJSON())
                                 );
