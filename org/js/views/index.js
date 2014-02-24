@@ -78,36 +78,36 @@
                 var that = this;
                 that.items.fetch({
                     success:function(itemsCallback){
-                        console.log(itemsCallback);
-                        // that.items.each(function(m){                             
+                        console.log(itemsCallback.length)
+                        that.items.each(function(m){                             
                             
-                        //     $("ul.startups li").each(function(){
-                        //         if ($(this).not("#"+id)){
-                        //             console.log("updateStartups",(new Date()),m);        
-                        //         }
-                        //     });
-                        //     if (m.length<0){                                
-                        //         that.$("ul.startups").append(
-                        //             that.startupSingle(m.toJSON())
-                        //         );
-                        //     }
+                            $("ul.startups li").each(function(){
+                                if ($(this).not("#"+id)){
+                                    console.log("updateStartups",(new Date()),m);        
+                                }
+                            });
+                            if (m.length<0){                                
+                                that.$("ul.startups").append(
+                                    that.startupSingle(m.toJSON())
+                                );
+                            }
 
-                        //     // if(m.length>0){
-                        //     //     $("ul.startups li").each(function(){
-                        //     //         if(!($(this).attr("id")=m.id)){
-                        //     //             that.$("ul.startups").append(
-                        //     //                 that.startupSingle(m.toJSON())
-                        //     //             );
+                            // if(m.length>0){
+                            //     $("ul.startups li").each(function(){
+                            //         if(!($(this).attr("id")=m.id)){
+                            //             that.$("ul.startups").append(
+                            //                 that.startupSingle(m.toJSON())
+                            //             );
 
-                        //     //         }
-                        //     //     });
-                        //     // } else{
-                        //     //     that.$("ul.startups").append(
-                        //     //         that.startupSingle(m.toJSON())
-                        //     //     );
-                        //     // }
+                            //         }
+                            //     });
+                            // } else{
+                            //     that.$("ul.startups").append(
+                            //         that.startupSingle(m.toJSON())
+                            //     );
+                            // }
 
-                        // });
+                        });
                     }, 
                     data: {"group":"startup"}                   
                 });
