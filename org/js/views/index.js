@@ -83,17 +83,17 @@
                             that.items.each(function(m){
                                 $("ul.startups li").each(function(){
                                     if($(this).not("#"+m.id)){
-
                                         console.log("updateStartups",(new Date()),m.id, $(this).attr("id"));                      
                                         // console.log("updateStartups",(new Date()),m);        
                                     }
                                 });                                
                             });
                         }else{
-                            that.$("ul.startups").append(
-                                that.startupSingle(m.toJSON())
-                            );
+                            
                         }
+                        $("ul.startups").append(
+                            that.startupSingle(m.toJSON())
+                        );
                     }, 
                     data: {"group":"startup"}                   
                 });
