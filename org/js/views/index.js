@@ -71,7 +71,7 @@
                 };                                
                 that.items.create(itemObj,{
                     callback:function(json,m){
-                        console.log("m:",m);
+                        console.log("createStartup",(new Date()),m);
                     }
                 });
             },updateStartups : function (){                
@@ -79,7 +79,7 @@
                 that.items.fetch({
                     success:function(){
                         that.items.each(function(m){ 
-                            console.log("updateStartups",m);
+                            console.log("updateStartups",(new Date()),m);
                             // if(m.length>0){
                             //     $("ul.startups li").each(function(){
                             //         if(!($(this).attr("id")=m.id)){
