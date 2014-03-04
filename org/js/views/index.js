@@ -15,18 +15,15 @@
                 this.home = _.template(Home);
                 
                 var StartupSingle = require('text!/html/startupsSingle.html');
-                this.startupSingle = _.template(StartupSingle);
-                
-                that.render();
-                
+                this.startupSingle = _.template(StartupSingle);                
+                that.render();            
 
             },
             events: {                  
                   'click .add': "createStartup"
                 , 'click .startups li .delete': "deleteStartup"
                 , 'click .add_founder': "add_founder"
-                , 'click .remove_founder': "remove_founder"
-                
+                , 'click .remove_founder': "remove_founder"                
             },
 
             openOverlay: function(){
@@ -43,13 +40,16 @@
                 var that       = this;
                 that.$el.html(this.home({}))                
                 that.items.fetch({
-                    success:function(){                                                
-                        that.items.each(function(m){                            
-                            console.log(m.toJSON())                            
+                    success:function(){
+                        that.items.each(function(m){
+                            console.log(m.toJSON())
+                            
                             that.$("ul.startups").append(
                                 that.startupSingle(m.toJSON())
                             );
+
                         });
+
                     }
                     , data: {"group":"startup"}                    
                 });
@@ -65,7 +65,6 @@
                         "founders" : founders,
                         "city" : ($("#city").val()),
                         "url" : ($("#url").val())
-
                     },
                     "group":"startup"
                 };                                
@@ -120,5 +119,4 @@
 
     });
 });
-
 }).call(this);
