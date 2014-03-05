@@ -64,7 +64,8 @@
                     "body":{
                         "founders" : founders,
                         "city" : ($("#city").val()),
-                        "url" : ($("#url").val())
+                        "url" : ($("#url").val()),
+                        "logo":($("#img").val())
                     },
                     "group":"startup"
                 };                                
