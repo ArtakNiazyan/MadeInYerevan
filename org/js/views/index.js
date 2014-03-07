@@ -68,7 +68,10 @@
                         "logo":($("#img").val())
                     },
                     "group":"startup"
-                };                                
+                };
+
+                
+
                 that.items.create(itemObj,{
                     callback:function(json,m){
                         console.log("createStartup",(new Date()),m);
