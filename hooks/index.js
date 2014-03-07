@@ -42,9 +42,11 @@
 		      .on('end', function() {
 		        console.log('-> upload done');
 		        res.writeHead(200, {'content-type': 'text/plain'});
-		        res.write('received fields:\n\n '+util.inspect(fields));
+		        // res.write('received fields:\n\n '+util.inspect(fields));
+		        res.write('received fields:\n\n ');
 		        res.write('\n\n');
-		        res.end('received files:\n\n '+util.inspect(files));
+		        res.end('received files:\n\n ');
+		        // +util.inspect(files));
 		      });
 		    form.parse(req);
 
