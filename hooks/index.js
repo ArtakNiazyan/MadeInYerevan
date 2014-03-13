@@ -4,15 +4,14 @@
 		, _ 	 	= require('underscore')
 		, hook 		= {}
 		, db
-		, util = require('util')
-		, formidable = require('formidable');
+		, util = require('util');
 
 	exports.run =function(options){
 		db = options.db;
 	}
 	exports.routes = function(app){
 	
-		app.post("/fileupload",function(req,res){
+	/*	app.post("/fileupload",function(req,res){
 			res.writeHead(200, {'content-type': 'text/html'});
 		    res.end(
 		      '<form action="/upload" enctype="multipart/form-data" method="post">'+
@@ -21,9 +20,9 @@
 		      '<input type="submit" value="Upload">'+
 		      '</form>'
 		    );
-		})
+		})*/
 
-		app.post("/upload",function(req,res){(
+	/*	app.post("/upload",function(req,res){(
 			var form = new formidable.IncomingForm(),
 		        files = [],
 		        fields = [];
@@ -50,7 +49,7 @@
 		      });
 		    form.parse(req);
 
-		)}
+		)}*/
 
 		app.get("/count",function(req,res){
 			db.count("instance",{},function(err,data){
