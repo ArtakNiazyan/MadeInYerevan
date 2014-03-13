@@ -1,6 +1,7 @@
 module.exports = 
 {
 	 "title" : "Made In Yerevan"
+	,"debug":true
 	,"api"		: {
 				}
 	,"useAuth" 	: false
