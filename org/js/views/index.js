@@ -59,14 +59,14 @@
                         that.items.each(function(m){
                             console.log(m.toJSON())
                             
-                            that.$("ul.startups").append(
+                            that.$("ul.submissions").append(
                                 that.startupSingle(m.toJSON())
                             );
 
                         });
 
                     }
-                    , data: {"group":"startup"}                    
+                    , data: {"group":"submissions"}                    
                 });
             },createStartup:function(){
                 var that       = this;                
