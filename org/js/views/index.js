@@ -98,7 +98,7 @@
                     success: function (returndata) {
                         var returndata = JSON.parse(returndata);
                         if (returndata.filename.length > 2){
-                            that.$("#logos").html('<img src="https://dev-madeinyerevan.lsq.io/fileaws/upload/'+returndata.filepath+'" data-filename="'+returndata.filename+'">');
+                            that.$("#logos").html('<img src="https://dev-madeinyerevan.lsq.io/file/aws/upload/'+returndata.filepath+'" data-filename="'+returndata.filename+'">');
                         }
                     }
                 });
