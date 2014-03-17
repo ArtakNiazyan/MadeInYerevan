@@ -54,6 +54,20 @@
                     }
                     , data: {"group":"startup"}                    
                 });
+                that.items.fetch({
+                    success:function(){
+                        that.items.each(function(m){
+                            console.log(m.toJSON())
+                            
+                            that.$("ul.startups").append(
+                                that.startupSingle(m.toJSON())
+                            );
+
+                        });
+
+                    }
+                    , data: {"group":"startup"}                    
+                });
             },createStartup:function(){
                 var that       = this;                
                 var founders = [];
