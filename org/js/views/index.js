@@ -21,6 +21,7 @@
             },
             events: {                  
                   'click .add': "createStartup"
+                , 'submit form': "fileUpload"
                 , 'click .startups li .delete': "deleteStartup"
                 , 'click .add_founder': "add_founder"
                 , 'click .remove_founder': "remove_founder"                
@@ -59,13 +60,15 @@
                 $(".founders li").each(function(){
                     founders.push($(this).children("h3").html());
                 });
+
+
                 var itemObj = {
                     "title":($("#company_name").val()),
                     "body":{
                         "founders" : founders,
                         "city" : ($("#city").val()),
                         "url" : ($("#url").val()),
-                        "logo":($("#img").val())
+                        "logo": ($("#logos img").attr("src"))
                     },
                     "group":"startup"
                 };
@@ -75,6 +78,25 @@
                 that.items.create(itemObj,{
                     callback:function(json,m){
                         console.log("createStartup",(new Date()),m);
+                    }
+                });
+            }, fileUpload : function(){
+                var that = this;  
+                var formData = new FormData(this.$("form")[0]);
+                 
+                $.ajax({
+                    url: '/file/aws/upload',
+                    type: 'POST',
+                    data: formData,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (returndata) {
+                        console.log(returndata);
+                        if (returndata.filename){
+                            this.$("#logos").html("<img src="+returndata.filepath+" data-filename="+returndata.filename+">");
+                        }
                     }
                 });
             },updateStartups : function (){                
