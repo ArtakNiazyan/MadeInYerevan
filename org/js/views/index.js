@@ -97,7 +97,7 @@
                     processData: false,
                     success: function (returndata) {
                         console.log(returndata);
-                        if (returndata.filename){
+                        if (returndata.filename.length > 2){
                             this.$("#logos").html("<img src="+returndata.filepath+" data-filename="+returndata.filename+">");
                         }
                     }
