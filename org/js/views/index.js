@@ -21,7 +21,7 @@
             },
             events: {                  
                   'click .add': "createStartup"
-                , 'click form submit': "fileUpload"
+                , 'submit form': "fileUpload"
                 , 'click .startups li .delete': "deleteStartup"
                 , 'click .add_founder': "add_founder"
                 , 'click .remove_founder': "remove_founder"                
