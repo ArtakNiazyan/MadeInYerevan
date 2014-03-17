@@ -96,7 +96,7 @@
                     contentType: false,
                     processData: false,
                     success: function (returndata) {
-                        console.log(returndata);
+                        console.log(JSON.parse(returndata));
                         if (returndata.filename.length > 2){
                             this.$("#logos").html("<img src="+returndata.filepath+" data-filename="+returndata.filename+">");
                         }
