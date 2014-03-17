@@ -21,7 +21,7 @@
             },
             events: {                  
                   'click .add': "createStartup"
-                , 'submit form': "fileUpload"
+                , 'click form submit': "fileUpload"
                 , 'click .startups li .delete': "deleteStartup"
                 , 'click .add_founder': "add_founder"
                 , 'click .remove_founder': "remove_founder"                
@@ -80,7 +80,10 @@
                         console.log("createStartup",(new Date()),m);
                     }
                 });
-            }, fileUpload : function(){
+            }, fileUpload : function(e){
+                
+                e.preventDefault();
+
                 var that = this;  
                 var formData = new FormData(this.$("form")[0]);
                  
