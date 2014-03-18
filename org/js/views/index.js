@@ -25,28 +25,15 @@
                 , 'click .startups li .delete': "deleteStartup"
                 , 'click .add_founder': "add_founder"
                 , 'click .remove_founder': "remove_founder"                
-            },
-
-            openOverlay: function(){
-                var that = this;
-                that.$(".overlay").addClass("showme");
-
-            },
-            hideOverlay: function(){
-                var that = this;
-                that.$(".overlay").removeClass("showme");
-
-            },
-            render:function(){
+            },render:function(){
                 var that       = this;
                 that.$el.html(this.home({}))                
                 that.items.fetch({
                     success:function(){
                         that.items.each(function(m){
                             console.log(m.toJSON())
-                            
-                            that.$("ul.startups").append(
-                                that.startupSingle(m.toJSON())
+                            var content = "<table></table>"
+                            that.$(content).append('<tr><td>' + that.startupSingle(m.toJSON() + '<td><tr>')
                             );
 
                         });
