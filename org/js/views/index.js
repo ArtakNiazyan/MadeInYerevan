@@ -56,7 +56,7 @@
                         });
 
                     }
-                    , data: {"group":"submissions"}                    
+                    , data: {"group":"submission"}                    
                 });
             },createStartup:function(){
                 var that       = this;                
