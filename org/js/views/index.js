@@ -25,15 +25,18 @@
                 , 'click .startups li .delete': "deleteStartup"
                 , 'click .add_founder': "add_founder"
                 , 'click .remove_founder': "remove_founder"                
-            },render:function(){
+            },
+
+            render:function(){
                 var that       = this;
                 that.$el.html(this.home({}))                
                 that.items.fetch({
                     success:function(){
                         that.items.each(function(m){
                             console.log(m.toJSON())
-                            var content = "<table></table>"
-                            that.$(content).append('<tr><td>' + that.startupSingle(m.toJSON() + '<td><tr>')
+                            
+                            that.$("ul.startups").append(
+                                that.startupSingle(m.toJSON())
                             );
 
                         });
