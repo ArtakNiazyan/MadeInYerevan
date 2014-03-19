@@ -23,6 +23,7 @@
                   'click .add': "createStartup"
                 , 'submit form': "fileUpload"
                 , 'click .startups li .delete': "deleteStartup"
+                , 'click .submissions li .delete': "deleteStartup"
                 , 'click .add_founder': "add_founder"
                 , 'click .remove_founder': "remove_founder"                
             },
