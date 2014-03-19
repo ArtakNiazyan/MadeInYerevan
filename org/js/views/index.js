@@ -131,10 +131,12 @@
                     data: {"group":"startup"}                   
                 });
             },deleteStartup:function(e){
+                console.log(this);
                 var that = this;
                 var id =  $(e.currentTarget).parent().attr("id");
                 that.items.get(id).destroy();            
-                that.$("#"+id).remove();            
+                that.$("#"+id).remove(); 
+
             },add_founder:function(){
                 var that = this;
                 if ($('.founder_input').val().length>2){
