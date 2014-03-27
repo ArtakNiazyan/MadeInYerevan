@@ -135,6 +135,7 @@
                 console.log("delete clicked");
                 var that = this;
                 var id =  $(e.currentTarget).parent().attr("id");
+                console.log(id);
                 that.items.get(id).destroy();            
                 that.$("#"+id).remove(); 
 
