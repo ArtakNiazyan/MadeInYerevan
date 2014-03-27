@@ -136,7 +136,9 @@
                 var that = this;
                 var id =  $(e.currentTarget).parent().attr("id");
                 console.log(id);
-                that.items.get(id).destroy();            
+                that.items.get(id).destroy();
+                console.log("this is item", that.items);
+                console.log("this is item get id", that.items.get(id));            
                 that.$("#"+id).remove(); 
 
             },add_founder:function(){
